@@ -31,37 +31,41 @@
 
 // Activity 3:
 
-// let coffeeShop = {
-//     branch: "Preston",
-//     drinksWithPrices: [
-//         ["water", 1],
-//         ["coke", 2],
-//         ["fanta", 3]
-//     ],
-//     foodWithPrices: [
-//         ["sausage roll", 1],
-//         ["sandwitches", 2],
-//         ["pizza", 3]
-//     ],
+let coffeeShop = {
+    branch: "Preston",
+    drinksWithPrices: [
+        ["water", 1],
+        ["coke", 2],
+        ["fanta", 3]
+    ],
+    foodWithPrices: [
+        ["sausage roll", 1],
+        ["sandwitches", 2],
+        ["pizza", 3]
+    ],
     
-//     drinkOrdered(drink){
-//         coffeeShop.drinksWithPrices.forEach((row) => {
-//             const correctIndex = row.findIndex(n => n == drink)
-//             if (correctIndex == 0){ 
-//                 console.log(`the price for ${drink} is £${row[1]}`);
-//             }
-//         })
-//     },
+    drinkOrdered(...drink){
+        drink.forEach((drinkItem)=>{
+            coffeeShop.drinksWithPrices.forEach((row) => {
+                const correctIndex = row.findIndex(n => n == drinkItem)
+                if (correctIndex == 0){ 
+                    console.log(`the price for ${drinkItem} is £${row[1]}`);
+                }
+            })
+        })
+    },
     
-//     foodOrdered(food){ 
-//         coffeeShop.foodWithPrices.forEach((row) => {
-//             const correctIndex = row.findIndex(n => n == food)
-//             if (correctIndex == 0){ 
-//                 console.log(`the price for ${food} is £${row[1]}`)
-//             }
-//         })
-//     }
-// }
+    foodOrdered(...food){ 
+        food.forEach((foodItem) => {
+            coffeeShop.foodWithPrices.forEach((row) => {
+                const correctIndex = row.findIndex(n => n == foodItem)
+                if (correctIndex == 0){ 
+                    console.log(`the price for ${foodItem} is £${row[1]}`)
+                }
+            })
+        })
+    }
+}
 
-// coffeeShop.drinkOrdered("water");
-// coffeeShop.foodOrdered("pizza");
+coffeeShop.drinkOrdered("water", "coke");
+coffeeShop.foodOrdered("pizza", "sausage roll");
